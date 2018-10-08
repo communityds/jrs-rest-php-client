@@ -280,6 +280,8 @@ class RESTRequest
 		curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curlHandle, CURLOPT_HEADER, true);
 
+		curl_setopt($curlHandle, CURLOPT_SSLVERSION, 6);
+		curl_setopt($curlHandle, CURLOPT_SSL_CIPHER_LIST, array('ecdhe_ecdsa_aes_128_gcm_sha_256,ecdhe_rsa_aes_128_gcm_sha_256'));
         if (!empty($this->content_type))
             $this->headers[] = "Content-Type: " . $this->content_type;
         if (!empty($this->accept_type))
